@@ -1,41 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import projectFoodApp from "@/assets/project-food-app.jpg";
-import projectFashion from "@/assets/project-fashion.jpg";
-import projectUnderbara from "@/assets/project-underbara.jpg";
-
-const projects = [
-  {
-    title: "Food Delivery App",
-    subtitle: "Skolprojekt",
-    description:
-      "Matleveransapp för unga vuxna med fokus på enkel navigering, allergifiltrering och snabb beställningsprocess.",
-    tags: ["UI/UX", "UX Research", "User Testing"],
-    duration: "3 veckor",
-    image: projectFoodApp,
-  },
-  {
-    title: "Cool Fashion",
-    subtitle: "E-commerce Concept",
-    description:
-      "Modigt varumärkeskoncept för en svensk e-handelsplattform med fokus på att sticka ut – \"Våga Vara Annorlunda\".",
-    tags: ["UI/UX", "Market Research", "Brand Design"],
-    duration: "3 veckor",
-    image: projectFashion,
-  },
-  {
-    title: "Underbara Unge",
-    subtitle: "WCAG 2.1 Redesign",
-    description:
-      "UX/UI-redesign med fokus på tillgänglighet enligt WCAG 2.1 AA. Förbättrad registrering, navigation och produktfiltrering.",
-    tags: ["UI/UX", "Accessibility", "Prototyping"],
-    duration: "Akademiskt projekt",
-    image: projectUnderbara,
-  },
-];
+import { useNavigate } from "react-router-dom";
+import { projects } from "@/data/projects";
+import { ArrowUpRight } from "lucide-react";
 
 const ProjectCard = ({ project, index }: { project: (typeof projects)[0]; index: number }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -49,17 +20,23 @@ const ProjectCard = ({ project, index }: { project: (typeof projects)[0]; index:
   return (
     <div
       ref={ref}
+      onClick={() => navigate(`/project/${project.id}`)}
       className={`project-card group rounded-2xl overflow-hidden bg-card border border-border hover-lift cursor-pointer transition-all duration-500 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      <div className="aspect-[16/10] overflow-hidden">
+      <div className="aspect-[16/10] overflow-hidden relative">
         <img
           src={project.image}
           alt={project.title}
           className="project-card-image w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500 flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-background/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
+            <ArrowUpRight className="w-5 h-5 text-foreground" />
+          </div>
+        </div>
       </div>
       <div className="p-6 space-y-3">
         <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
@@ -71,7 +48,7 @@ const ProjectCard = ({ project, index }: { project: (typeof projects)[0]; index:
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs font-medium px-3 py-1 rounded-full bg-primary/10 text-primary"
+              className={`text-xs font-medium px-3 py-1 rounded-full ${project.accentBg}`}
             >
               {tag}
             </span>
