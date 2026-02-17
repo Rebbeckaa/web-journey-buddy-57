@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { projects } from "@/data/projects";
-import { ArrowLeft, Clock, Users, Briefcase } from "lucide-react";
+import { ArrowLeft, Clock, Users, Briefcase, Target, ExternalLink } from "lucide-react";
 import { useEffect } from "react";
 
 const ProjectDetail = () => {
@@ -10,7 +10,7 @@ const ProjectDetail = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [id]);
 
   if (!project) {
     return (
@@ -66,9 +66,9 @@ const ProjectDetail = () => {
 
       {/* Content */}
       <div className="container mx-auto px-6 py-16">
-        <div className="max-w-3xl mx-auto space-y-16">
+        <div className="max-w-4xl mx-auto space-y-16">
           {/* Meta */}
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border">
               <Clock className="w-5 h-5 text-muted-foreground mt-0.5" />
               <div>
@@ -92,7 +92,29 @@ const ProjectDetail = () => {
                 </div>
               </div>
             )}
+            {project.focus && (
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border">
+                <Target className="w-5 h-5 text-muted-foreground mt-0.5" />
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Focus</p>
+                  <p className="text-sm font-medium">{project.focus}</p>
+                </div>
+              </div>
+            )}
           </div>
+
+          {/* Prototype link */}
+          {project.prototypeLink && (
+            <a
+              href={project.prototypeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              <ExternalLink className="w-4 h-4" />
+              View Prototype in Figma
+            </a>
+          )}
 
           {/* Overview */}
           <div className="space-y-4">
@@ -126,6 +148,36 @@ const ProjectDetail = () => {
               ))}
             </ol>
           </div>
+
+          {/* Dynamic sections with images */}
+          {project.sections.map((section, i) => (
+            <div key={i} className="space-y-6">
+              <h2 className="text-2xl md:text-3xl">{section.title}</h2>
+              <p className="text-muted-foreground leading-relaxed text-lg">{section.content}</p>
+              {section.image && (
+                <div className="rounded-xl overflow-hidden border border-border">
+                  <img
+                    src={section.image}
+                    alt={section.imageAlt || section.title}
+                    className="w-full object-cover"
+                  />
+                </div>
+              )}
+              {section.images && (
+                <div className="grid gap-4">
+                  {section.images.map((img, j) => (
+                    <div key={j} className="rounded-xl overflow-hidden border border-border">
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="w-full object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
 
           {/* Back CTA */}
           <div className="pt-8 border-t border-border flex justify-between items-center">

@@ -14,4 +14,6 @@ export interface Project {
   process: string[];
   role: string;
   team?: string;
+  focus?: string;
+  prototypeLink?: string;
 }

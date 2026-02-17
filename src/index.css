@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 35 30% 96%;
-    --foreground: 20 10% 12%;
+    --background: 140 15% 96%;
+    --foreground: 160 10% 12%;
 
-    --card: 35 25% 93%;
-    --card-foreground: 20 10% 12%;
+    --card: 140 12% 93%;
+    --card-foreground: 160 10% 12%;
 
-    --popover: 35 30% 96%;
-    --popover-foreground: 20 10% 12%;
+    --popover: 140 15% 96%;
+    --popover-foreground: 160 10% 12%;
 
-    --primary: 16 65% 55%;
-    --primary-foreground: 35 30% 96%;
+    --primary: 152 45% 42%;
+    --primary-foreground: 140 15% 96%;
 
-    --secondary: 35 20% 88%;
-    --secondary-foreground: 20 10% 12%;
+    --secondary: 140 12% 88%;
+    --secondary-foreground: 160 10% 12%;
 
-    --muted: 35 15% 90%;
-    --muted-foreground: 20 8% 45%;
+    --muted: 140 10% 90%;
+    --muted-foreground: 160 8% 45%;
 
-    --accent: 16 65% 55%;
-    --accent-foreground: 35 30% 96%;
+    --accent: 152 45% 42%;
+    --accent-foreground: 140 15% 96%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 35 15% 85%;
-    --input: 35 15% 85%;
-    --ring: 16 65% 55%;
+    --border: 140 10% 85%;
+    --input: 140 10% 85%;
+    --ring: 152 45% 42%;
 
     --radius: 0.75rem;
 
@@ -47,25 +47,25 @@
   }
 
   .dark {
-    --background: 20 10% 8%;
-    --foreground: 35 20% 92%;
-    --card: 20 10% 12%;
-    --card-foreground: 35 20% 92%;
-    --popover: 20 10% 8%;
-    --popover-foreground: 35 20% 92%;
-    --primary: 16 65% 55%;
-    --primary-foreground: 35 30% 96%;
-    --secondary: 20 10% 16%;
-    --secondary-foreground: 35 20% 92%;
-    --muted: 20 10% 16%;
-    --muted-foreground: 35 10% 55%;
-    --accent: 16 65% 55%;
-    --accent-foreground: 35 30% 96%;
+    --background: 160 10% 8%;
+    --foreground: 140 12% 92%;
+    --card: 160 10% 12%;
+    --card-foreground: 140 12% 92%;
+    --popover: 160 10% 8%;
+    --popover-foreground: 140 12% 92%;
+    --primary: 152 45% 42%;
+    --primary-foreground: 140 15% 96%;
+    --secondary: 160 10% 16%;
+    --secondary-foreground: 140 12% 92%;
+    --muted: 160 10% 16%;
+    --muted-foreground: 140 8% 55%;
+    --accent: 152 45% 42%;
+    --accent-foreground: 140 15% 96%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 20 10% 18%;
-    --input: 20 10% 18%;
-    --ring: 16 65% 55%;
+    --border: 160 10% 18%;
+    --input: 160 10% 18%;
+    --ring: 152 45% 42%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -93,7 +93,7 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[hsl(30,70%,50%)];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[hsl(170,50%,35%)];
   }
 }
 
