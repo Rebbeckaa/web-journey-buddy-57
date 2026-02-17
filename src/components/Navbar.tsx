@@ -25,9 +25,9 @@ const Navbar = () => {
         </button>
         <div className="hidden md:flex items-center gap-8">
           {[
-            { label: "Projekt", id: "projects" },
-            { label: "Om mig", id: "about" },
-            { label: "Kontakt", id: "contact" },
+            { label: "Work", id: "projects" },
+            { label: "About", id: "about" },
+            { label: "Contact", id: "contact" },
           ].map((item) => (
             <button
               key={item.id}

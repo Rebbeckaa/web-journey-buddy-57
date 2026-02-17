@@ -65,9 +65,9 @@ const ProjectsSection = () => {
       <div className="container mx-auto px-6">
         <div className="mb-16 max-w-xl">
           <p className="text-sm font-medium tracking-widest uppercase text-primary mb-3">Case Studies</p>
-          <h2 className="text-4xl md:text-5xl mb-4">Utvalda projekt</h2>
+          <h2 className="text-4xl md:text-5xl mb-4">Selected Work</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Ett urval av akademiska och självinitierade projekt där jag fokuserat på användarcentrerad design.
+            A selection of academic and self-initiated projects focused on user-centered design.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

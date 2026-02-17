@@ -8,27 +8,27 @@ const HeroSection = () => {
           {/* Left: Text */}
           <div className="space-y-6">
             <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground opacity-0 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-              UX Designer · Sverige
+              UX Designer · Sweden
             </p>
             <h1 className="text-5xl md:text-7xl leading-[1.1] opacity-0 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-              Hej, jag är{" "}
+              Hi, I'm{" "}
               <span className="text-gradient italic">Rebecka</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-md leading-relaxed opacity-0 animate-fade-up" style={{ animationDelay: "0.5s" }}>
-              UX Design-student med fokus på att skapa intuitiva och tillgängliga användarupplevelser genom research, wireframing och prototyping.
+              UX Design student building a solid foundation in user research, wireframing, and prototyping — focused on creating intuitive and accessible user experiences.
             </p>
             <div className="flex gap-4 opacity-0 animate-fade-up" style={{ animationDelay: "0.7s" }}>
               <button
                 onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
                 className="px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium text-sm hover:opacity-90 transition-opacity"
               >
-                Se mina projekt
+                View my work
               </button>
               <button
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 className="px-6 py-3 border border-border text-foreground rounded-full font-medium text-sm hover:bg-secondary transition-colors"
               >
-                Kontakta mig
+                Get in touch
               </button>
             </div>
           </div>

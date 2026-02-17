@@ -16,9 +16,9 @@ const ProjectDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center space-y-4">
-          <h1 className="text-3xl font-display">Projektet hittades inte</h1>
+          <h1 className="text-3xl font-display">Project not found</h1>
           <button onClick={() => navigate("/")} className="text-primary underline">
-            Tillbaka till startsidan
+            Back to home
           </button>
         </div>
       </div>
@@ -34,7 +34,7 @@ const ProjectDetail = () => {
           className="flex items-center gap-2 px-4 py-2 bg-background/80 backdrop-blur-lg border border-border rounded-full text-sm font-medium hover:bg-secondary transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          Tillbaka
+          Back
         </button>
       </div>
 
@@ -72,14 +72,14 @@ const ProjectDetail = () => {
             <div className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border">
               <Clock className="w-5 h-5 text-muted-foreground mt-0.5" />
               <div>
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Tidsram</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Duration</p>
                 <p className="text-sm font-medium">{project.duration}</p>
               </div>
             </div>
             <div className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border">
               <Briefcase className="w-5 h-5 text-muted-foreground mt-0.5" />
               <div>
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Roll</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Role</p>
                 <p className="text-sm font-medium">{project.role}</p>
               </div>
             </div>
@@ -96,19 +96,19 @@ const ProjectDetail = () => {
 
           {/* Overview */}
           <div className="space-y-4">
-            <h2 className="text-2xl md:text-3xl">Översikt</h2>
+            <h2 className="text-2xl md:text-3xl">Overview</h2>
             <p className="text-muted-foreground leading-relaxed text-lg">{project.overview}</p>
           </div>
 
           {/* Challenge */}
           <div className="space-y-4">
-            <h2 className="text-2xl md:text-3xl">Utmaning</h2>
+            <h2 className="text-2xl md:text-3xl">Challenge</h2>
             <p className="text-muted-foreground leading-relaxed text-lg">{project.challenge}</p>
           </div>
 
           {/* Solution */}
           <div className="space-y-4">
-            <h2 className="text-2xl md:text-3xl">Lösning</h2>
+            <h2 className="text-2xl md:text-3xl">Solution</h2>
             <p className="text-muted-foreground leading-relaxed text-lg">{project.solution}</p>
           </div>
 
@@ -134,9 +134,8 @@ const ProjectDetail = () => {
               className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              Alla projekt
+              All projects
             </button>
-            {/* Next project */}
             {(() => {
               const currentIndex = projects.findIndex((p) => p.id === id);
               const next = projects[(currentIndex + 1) % projects.length];
@@ -145,7 +144,7 @@ const ProjectDetail = () => {
                   onClick={() => navigate(`/project/${next.id}`)}
                   className="text-sm font-medium text-primary hover:underline"
                 >
-                  Nästa: {next.title} →
+                  Next: {next.title} →
                 </button>
               );
             })()}
